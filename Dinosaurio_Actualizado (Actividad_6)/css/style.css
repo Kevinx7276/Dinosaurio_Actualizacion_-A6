@@ -1,0 +1,196 @@
+/* Resetea el padding y el margin para todos los elementos */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para el body */
+body {
+    height: 100vh; /* Altura del viewport del navegador */
+    background: linear-gradient(#994a4a, #ffffff,#994a4a ) ; /* Gradiente de fondo que se desvanece a transparente */
+    display: flex; /* Usa Flexbox para centrar el contenido */
+    align-items: center; /* Centra verticalmente los elementos en el body */
+}
+
+/* Estilo del contenedor principal del juego */
+.contenedor {
+    border: 10px;
+    border-style: inset;
+    border-color: #994a4a;
+    border-radius: 15px;
+    width: 920px; /* Ancho del contenedor */
+    height: 500px; /* Altura del contenedor */
+    margin: 0 auto; /* Centra horizontalmente el contenedor */
+    position: relative; /* Posiciona el contenedor como relativo para que los elementos hijos puedan posicionarse en relación a él */
+    background: linear-gradient(#00eeff, transparent) #ffffff; /* Fondo del contenedor con un gradiente azul que se desvanece a blanco */
+    transition: background-color 1s linear; /* Transición suave de color de fondo */
+    overflow: hidden; /* Oculta cualquier contenido que desborde el contenedor */
+}
+
+/* Estilos para diferentes momentos del día */
+
+.mediodia {
+    background: linear-gradient(#fffd8f, transparent) #ffffff; /* Fondo amarillo pálido para el mediodía */
+}
+
+.tarde {
+    background: linear-gradient(#160094, transparent) #fa5c00; /* Fondo de atardecer con gradiente morado a naranja */
+}
+
+.noche {
+    background: linear-gradient(#000000, transparent) #000000; /* Fondo negro para la noche */
+}
+.dia {
+    background: linear-gradient(#00eeff, transparent) #ffffff;/* Fondo con un gradiente azul que se desvanece a blanco */
+}
+.mediodia_2 {
+    background: linear-gradient(#fffd8f, transparent) #ffffff; /* Fondo amarillo pálido para el mediodía */
+}
+.tarde_2 {
+    background: linear-gradient(#160094, transparent) #fa5c00; /* Fondo de atardecer con gradiente morado a naranja */
+}
+
+.noche_2 {
+    background: linear-gradient(#000000, transparent) #000000; /* Fondo negro para la noche */
+}
+
+/* Estilo del dinosaurio */
+.dino {
+    width: 84px; /* Ancho del dinosaurio */
+    height: 84px; /* Altura del dinosaurio */
+    position: absolute; /* Posiciona el dinosaurio de manera absoluta dentro del contenedor */
+    bottom: 22px; /* Posición en la parte inferior del contenedor */
+    left: 42px; /* Posición desde la izquierda del contenedor */
+    z-index: 2; /* Asegura que el dinosaurio esté por encima de otros elementos */
+    background: url(../img/dino.png) repeat-x 0px 0px; /* Fondo del dinosaurio con una imagen que se repite horizontalmente */
+    background-size: 336px 84px; /* Tamaño del fondo de la imagen */
+    background-position-x: 0px; /* Posiciona la imagen de fondo */
+}
+
+/* Animación para el dinosaurio en movimiento */
+.dino-corriendo {
+    animation: animar_Dino 0.25s steps(2) infinite; /* Animación que cambia la posición del fondo para simular que el dinosaurio corre */
+}
+
+.dino-agachado {
+    width: 110px; /* Cambia esto para que coincida con el ancho real de la imagen agachada */
+    height: 50px; /* Cambia esto para que coincida con la altura real de la imagen agachada */
+    background: url(../img/dino-2.png) no-repeat; /* Asegúrate de que la ruta de la imagen sea correcta */
+    animation:  agachar_Dino 0.25s steps(2) infinite;
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: 0 0; /* Ajusta la posición del sprite si es necesario */
+}
+
+
+/* Estilo para cuando el dinosaurio está estrellado */
+.dino-estrellado {
+    background-position-x: -252px; /* Ajusta la imagen de fondo para mostrar el dinosaurio estrellado */
+}
+
+
+/* Estilo del suelo */
+.suelo {
+    width: 200%; /* Ancho del suelo, más ancho que el contenedor para permitir el desplazamiento */
+    height: 42px; /* Altura del suelo */
+    position: absolute; /* Posiciona el suelo de manera absoluta en la parte inferior del contenedor */
+    bottom: 0; /* Posición en la parte inferior del contenedor */
+    left: 0; /* Posición desde la izquierda del contenedor */
+    background: url(../img/suelo.png) repeat-x 0px 0px; /* Fondo del suelo con una imagen que se repite horizontalmente */
+    background-size: 50% 42px; /* Tamaño del fondo de la imagen */
+}
+
+/* Estilo de los obstáculos (cactus) */
+.cactus {
+    width: 46px; /* Ancho del obstáculo */
+    height: 96px; /* Altura del obstáculo */
+    position: absolute; /* Posiciona el obstáculo de manera absoluta en el contenedor */
+    bottom: 16px; /* Posición en la parte inferior del contenedor */
+    left: 600px; /* Posición desde la izquierda del contenedor */
+    z-index: 1; /* Asegura que el obstáculo esté por debajo del dinosaurio */
+    background: url(../img/cactus1.png) no-repeat; /* Fondo del obstáculo con una imagen de cactus */
+}
+
+/* Estilo para un tipo específico de obstáculo (cactus2) */
+.cactus2 {
+    width: 98px; /* Ancho del obstáculo */
+    height: 66px; /* Altura del obstáculo */
+    background: url(../img/cactus2.png) no-repeat; /* Fondo del obstáculo con una imagen diferente de cactus */
+}
+
+/* Estilo de las nubes */
+.nube {
+    width: 92px; /* Ancho de la nube */
+    height: 26px; /* Altura de la nube */
+    position: absolute; /* Posiciona la nube de manera absoluta en el contenedor */
+    z-index: 0; /* Asegura que la nube esté por debajo de otros elementos */
+    background: url(../img/nube.png) no-repeat; /* Fondo de la nube con una imagen de nube */
+    background-size: 92px 26px; /* Tamaño del fondo de la imagen */
+}
+
+/* Estilo de los pajaros*/
+.pajaro {
+    width: 48px; /* Ancho del pajaro */
+    height: 26px; /* Altura del pajaro */
+    position: absolute; /* Posiciona el pajaro de manera absoluta en el contenedor */
+    z-index: 0; /* Asegura que el pajaro esté por debajo de otros elementos */
+    animation:  aleteo_Pajaro 0.25s steps(2) infinite;
+    background: url(../img/pajarito.png) no-repeat; /* Fondo del pajaro con una imagen de nube */
+    background-size: 92px 26px; /* Tamaño del fondo de la imagen */
+}
+
+
+/* Estilo para el texto de la puntuación */
+.score {
+    width: 100px; /* Ancho del contenedor de puntuación */
+    height: 30px; /* Altura del contenedor de puntuación */
+    position: absolute; /* Posiciona el texto de puntuación de manera absoluta */
+    top: 5px; /* Posición desde la parte superior del contenedor */
+    right: 15px; /* Posición desde la parte derecha del contenedor */
+    z-index: 10; /* Asegura que la puntuación esté por encima de otros elementos */
+    color: #d48871; /* Color del texto de la puntuación */
+    font-family: Verdana; /* Fuente del texto de la puntuación */
+    font-size: 30px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    text-align: right; /* Alineación del texto a la derecha */
+}
+
+/* Estilo para el mensaje de "GAME OVER" */
+.game-over {
+    display: none; /* Oculta el mensaje de "GAME OVER" por defecto */
+    position: absolute; /* Posiciona el mensaje de manera absoluta */
+    width: 100%; /* Ancho completo del contenedor */
+    text-align: center; /* Centra el texto horizontalmente */
+    color: #7e928b; /* Color del texto */
+    font-size: 30px; /* Tamaño de la fuente */
+    font-family: Verdana; /* Fuente del texto */
+    font-weight: 700; /* Negrita */
+}
+
+/* Animación para el dinosaurio corriendo */
+@keyframes animar_Dino {
+    from {
+        background-position-x: -84px; /* Posición inicial de la imagen de fondo */
+    }
+    to {
+        background-position-x: -252px; /* Posición final de la imagen de fondo */
+    }
+}
+
+/* Animación para el dinosaurio agachado */
+@keyframes agachar_Dino {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: -226px; /* Ajusta según el tamaño de tu sprite sheet */
+    }
+}
+
+@keyframes aleteo_Pajaro {
+    from {
+        background-position-x: 0;
+    }
+    to {
+        background-position-x: -100px;
+    }
+}
